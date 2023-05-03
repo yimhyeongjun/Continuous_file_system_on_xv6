@@ -49,6 +49,6 @@ write 연산만 고려할 때 newblk = balloc()을 통해 비어 있는 디스�
 <br>xv6의 쉘 프롬프트에서 rm 명령어를 사용하면 rm.c 파일이 실행되고 rm.c파일 내부에서 unlink() 시스템 콜이 호출된다. unlink() 시스템 콜 호출 시 sysfile.c의 sys_unlink()를 수행하게 되고 unlink를 수행하게 되는데 sys_unlink() 내부에서 link가 하나인 파일을 unlink하는 경우 할당된 메모리와 inode를 해제한다. 이 때 fs.c에 위치한 iunlockput()이라는 파일을 호출하고 iunlockput()은 iput()함수를 호출한다. iput() 함수는 인자로 받은 inode를 참조하는 link가 하나일 경우 itrunc() 함수를 호출하여 inode를 해제한다.
 itrunc() 함수에서는 인자로 받은 inode 포인터가 가리키는 inode 내부 값을 모두 초기화하고 inode의 direct block이 가리키는 디스크 상의 메모리도 모두 해제한다.
 
-## CS 기반 파일 시스템 파일 Create, Write, Read, Delete 분석
+## CS 기반 파일 시스템 파일 Create, Write, Read, Delete
 
 ## 실행 결과
